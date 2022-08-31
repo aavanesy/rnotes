@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 8 Footnotes and citations2 | A Minimal Book Example</title>
+<meta name="author" content="John Doe">
+<meta name="description" content="8.1 Pulling data from Yahoo Finance and handling errors  8.1.1 Original text on Linkedin https://www.linkedin.com/posts/activity-6966065532613619712-llbq?utm_source=share&amp;utm_medium=member_desktop...">
+<meta name="generator" content="bookdown 0.28 with bs4_book()">
+<meta property="og:title" content="Chapter 8 Footnotes and citations2 | A Minimal Book Example">
+<meta property="og:type" content="book">
+<meta property="og:description" content="8.1 Pulling data from Yahoo Finance and handling errors  8.1.1 Original text on Linkedin https://www.linkedin.com/posts/activity-6966065532613619712-llbq?utm_source=share&amp;utm_medium=member_desktop...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 8 Footnotes and citations2 | A Minimal Book Example">
+<meta name="twitter:description" content="8.1 Pulling data from Yahoo Finance and handling errors  8.1.1 Original text on Linkedin https://www.linkedin.com/posts/activity-6966065532613619712-llbq?utm_source=share&amp;utm_medium=member_desktop...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">A Minimal Book Example</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> About</a></li>
+<li><a class="" href="hello-bookdown.html"><span class="header-section-number">2</span> Hello bookdown</a></li>
+<li><a class="" href="cross.html"><span class="header-section-number">3</span> Cross-references</a></li>
+<li><a class="" href="parts.html"><span class="header-section-number">4</span> Parts</a></li>
+<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">5</span> Footnotes and citations</a></li>
+<li><a class="" href="blocks.html"><span class="header-section-number">6</span> Blocks</a></li>
+<li><a class="" href="sharing-your-book.html"><span class="header-section-number">7</span> Sharing your book</a></li>
+<li><a class="active" href="footnotes-and-citations2.html"><span class="header-section-number">8</span> Footnotes and citations2</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="footnotes-and-citations2" class="section level1" number="8">
+<h1>
+<span class="header-section-number">8</span> Footnotes and citations2<a class="anchor" aria-label="anchor" href="#footnotes-and-citations2"><i class="fas fa-link"></i></a>
+</h1>
+<div id="pulling-data-from-yahoo-finance-and-handling-errors" class="section level2" number="8.1">
+<h2>
+<span class="header-section-number">8.1</span> Pulling data from Yahoo Finance and handling errors<a class="anchor" aria-label="anchor" href="#pulling-data-from-yahoo-finance-and-handling-errors"><i class="fas fa-link"></i></a>
+</h2>
+<div id="original-text-on-linkedin" class="section level3" number="8.1.1">
+<h3>
+<span class="header-section-number">8.1.1</span> Original text on Linkedin<a class="anchor" aria-label="anchor" href="#original-text-on-linkedin"><i class="fas fa-link"></i></a>
+</h3>
+<p><a href="https://www.linkedin.com/posts/activity-6966065532613619712-llbq?utm_source=share&amp;utm_medium=member_desktop" class="uri">https://www.linkedin.com/posts/activity-6966065532613619712-llbq?utm_source=share&amp;utm_medium=member_desktop</a></p>
+<p>This is a mini-project I worked on last week and got paid. First, I
+drafted a base R solution and in the second iteration a more robust
+solution with functional programming.</p>
+<p>My final solution is six steps with piping. Curious to see python
+versions as well.</p>
+<p>We have a list of hundreds of yahoo finance tickers. Some of them are
+inactive.</p>
+<p>To simplify, let’s take only 6. The ticker A1B1 is invalid.</p>
+<p>tickers &lt;- c(“MMM”, “ABBV”, “ABMD”, “A1B1”, # invalid ticker “ACN”,
+“ADM”)</p>
+<p>We use the function getSymbols from quantmod to extract the values. It
+will run into an error if we run an invalid ticker.</p>
+<p>quantmod::getSymbols(“MMM”, from = “2010-12-31”, to = “2022-01-01”, env
+= NULL, auto.assign = FALSE)</p>
+<p>It returns the Open, High, Low, Close, Volume, and Adjusted Price. All
+we need is the last column, Adjusted.</p>
+<p>Finally, all results must be aggregated into a single tibble object, as
+per the screenshot (shows the first and last five rows, 2770 in total).</p>
+</div>
+<div id="solution-using-functional-programming-in-r" class="section level3" number="8.1.2">
+<h3>
+<span class="header-section-number">8.1.2</span> Solution using functional programming in R<a class="anchor" aria-label="anchor" href="#solution-using-functional-programming-in-r"><i class="fas fa-link"></i></a>
+</h3>
+<p>Solution Description</p>
+<p>Invalid ticker A1B1 will cause an error: we use <strong>possibly</strong> from purrr which will return NULL when getSymbols will fail.<br>
+Different tickers will have different inception dates. I use merge.xts from the package xts as it will by default perform an outer join and add all possible dates.<br>
+Example: ticker A exists since 2015, ticker B since 2010. The left join from dplyr will omit five years of data.<br>
+The dplyr alternative is the full join but as quantmod returns an xts object by definition, I opt for merge.xts.</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/warning.html">suppressWarnings</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/message.html">suppressMessages</a></span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span><span class="op">)</span><span class="op">)</span>;
+<span class="fu"><a href="https://rdrr.io/r/base/warning.html">suppressWarnings</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/message.html">suppressMessages</a></span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://purrr.tidyverse.org">purrr</a></span><span class="op">)</span><span class="op">)</span><span class="op">)</span>;
+<span class="fu"><a href="https://rdrr.io/r/base/warning.html">suppressWarnings</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/message.html">suppressMessages</a></span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/business-science/tidyquant">tidyquant</a></span><span class="op">)</span><span class="op">)</span><span class="op">)</span>;
+
+<span class="va">tickers</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"MMM"</span>, <span class="st">"ABBV"</span>, <span class="st">"ABMD"</span>,
+            <span class="st">"A1B1"</span>, <span class="co">#invalid ticker</span>
+            <span class="st">"ACN"</span>, <span class="st">"ADM"</span><span class="op">)</span>
+
+
+<span class="va">res</span> <span class="op">=</span> <span class="va">tickers</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/safely.html">possibly</a></span><span class="op">(</span>.f <span class="op">=</span> <span class="op">~</span> <span class="fu">quantmod</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/quantmod/man/getSymbols.html">getSymbols</a></span><span class="op">(</span><span class="va">.x</span>, from <span class="op">=</span> <span class="st">"2010-12-31"</span>,
+                                 to <span class="op">=</span> <span class="st">"2022-01-01"</span>,
+                                 env <span class="op">=</span> <span class="cn">NULL</span>,
+                                 auto.assign <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">[</span>,<span class="fl">6</span><span class="op">]</span>,
+               otherwise <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="co">#from purrr, removing the NULL objects from a list</span>
+  <span class="fu"><a href="https://purrr.tidyverse.org/reference/keep.html">discard</a></span><span class="op">(</span><span class="va">is.null</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="co">#from purrr, merging elements of a list using a specific function</span>
+  <span class="fu"><a href="https://purrr.tidyverse.org/reference/reduce.html">reduce</a></span><span class="op">(</span><span class="va">merge.xts</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="co">#converting the xts result to data.frame</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="co">#add Date as the first column</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="op">)</span>, .before <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">everything</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> 
+<span class="co">#&gt; Warning: A1B1 download failed; trying again.</span></code></pre></div>
+<div class="inline-table"><table class="table table table table-hover table-condensed" style="width: auto !important;  font-size: 11px; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;">
+<thead><tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Date
+</th>
+<th style="text-align:right;">
+MMM.Adjusted
+</th>
+<th style="text-align:right;">
+ABBV.Adjusted
+</th>
+<th style="text-align:right;">
+ABMD.Adjusted
+</th>
+<th style="text-align:right;">
+ACN.Adjusted
+</th>
+<th style="text-align:right;">
+ADM.Adjusted
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+2010-12-31
+</td>
+<td style="text-align:left;">
+2010-12-31
+</td>
+<td style="text-align:right;">
+61.97549
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+9.61
+</td>
+<td style="text-align:right;">
+38.88908
+</td>
+<td style="text-align:right;">
+22.06221
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2011-01-03
+</td>
+<td style="text-align:left;">
+2011-01-03
+</td>
+<td style="text-align:right;">
+62.32737
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+9.80
+</td>
+<td style="text-align:right;">
+38.96928
+</td>
+<td style="text-align:right;">
+22.29690
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2011-01-04
+</td>
+<td style="text-align:left;">
+2011-01-04
+</td>
+<td style="text-align:right;">
+62.24121
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+9.80
+</td>
+<td style="text-align:right;">
+38.71263
+</td>
+<td style="text-align:right;">
+22.28223
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2011-01-05
+</td>
+<td style="text-align:left;">
+2011-01-05
+</td>
+<td style="text-align:right;">
+62.24121
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+10.03
+</td>
+<td style="text-align:right;">
+38.72065
+</td>
+<td style="text-align:right;">
+22.38492
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2011-01-06
+</td>
+<td style="text-align:left;">
+2011-01-06
+</td>
+<td style="text-align:right;">
+61.86057
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+10.05
+</td>
+<td style="text-align:right;">
+38.86502
+</td>
+<td style="text-align:right;">
+23.24306
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2011-01-07
+</td>
+<td style="text-align:left;">
+2011-01-07
+</td>
+<td style="text-align:right;">
+61.92521
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+9.89
+</td>
+<td style="text-align:right;">
+38.92918
+</td>
+<td style="text-align:right;">
+23.43376
+</td>
+</tr>
+</tbody>
+</table></div>
+<div class="inline-table"><table class="table table table table-hover table-condensed" style="width: auto !important;  font-size: 11px; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;">
+<thead><tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Date
+</th>
+<th style="text-align:right;">
+MMM.Adjusted
+</th>
+<th style="text-align:right;">
+ABBV.Adjusted
+</th>
+<th style="text-align:right;">
+ABMD.Adjusted
+</th>
+<th style="text-align:right;">
+ACN.Adjusted
+</th>
+<th style="text-align:right;">
+ADM.Adjusted
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+2021-12-23
+</td>
+<td style="text-align:left;">
+2021-12-23
+</td>
+<td style="text-align:right;">
+169.8183
+</td>
+<td style="text-align:right;">
+129.4026
+</td>
+<td style="text-align:right;">
+352.21
+</td>
+<td style="text-align:right;">
+399.6513
+</td>
+<td style="text-align:right;">
+64.49468
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-12-27
+</td>
+<td style="text-align:left;">
+2021-12-27
+</td>
+<td style="text-align:right;">
+171.4974
+</td>
+<td style="text-align:right;">
+130.6860
+</td>
+<td style="text-align:right;">
+357.83
+</td>
+<td style="text-align:right;">
+411.5622
+</td>
+<td style="text-align:right;">
+65.11558
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-12-28
+</td>
+<td style="text-align:left;">
+2021-12-28
+</td>
+<td style="text-align:right;">
+172.4097
+</td>
+<td style="text-align:right;">
+130.6666
+</td>
+<td style="text-align:right;">
+357.44
+</td>
+<td style="text-align:right;">
+411.5027
+</td>
+<td style="text-align:right;">
+65.96315
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-12-29
+</td>
+<td style="text-align:left;">
+2021-12-29
+</td>
+<td style="text-align:right;">
+173.1570
+</td>
+<td style="text-align:right;">
+131.6097
+</td>
+<td style="text-align:right;">
+361.84
+</td>
+<td style="text-align:right;">
+411.6515
+</td>
+<td style="text-align:right;">
+66.04199
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-12-30
+</td>
+<td style="text-align:left;">
+2021-12-30
+</td>
+<td style="text-align:right;">
+172.4097
+</td>
+<td style="text-align:right;">
+132.1639
+</td>
+<td style="text-align:right;">
+362.06
+</td>
+<td style="text-align:right;">
+410.0758
+</td>
+<td style="text-align:right;">
+65.89417
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-12-31
+</td>
+<td style="text-align:left;">
+2021-12-31
+</td>
+<td style="text-align:right;">
+172.4000
+</td>
+<td style="text-align:right;">
+131.6486
+</td>
+<td style="text-align:right;">
+359.17
+</td>
+<td style="text-align:right;">
+410.7893
+</td>
+<td style="text-align:right;">
+66.61361
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="sharing-your-book.html"><span class="header-section-number">7</span> Sharing your book</a></div>
+<div class="next"><a href="references.html">References</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#footnotes-and-citations2"><span class="header-section-number">8</span> Footnotes and citations2</a></li>
+<li>
+<a class="nav-link" href="#pulling-data-from-yahoo-finance-and-handling-errors"><span class="header-section-number">8.1</span> Pulling data from Yahoo Finance and handling errors</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#original-text-on-linkedin"><span class="header-section-number">8.1.1</span> Original text on Linkedin</a></li>
+<li><a class="nav-link" href="#solution-using-functional-programming-in-r"><span class="header-section-number">8.1.2</span> Solution using functional programming in R</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/08-rpythonchallenges.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/08-rpythonchallenges.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>A Minimal Book Example</strong>" was written by John Doe. It was last built on 2022-08-31.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

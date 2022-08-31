@@ -23,3 +23,10 @@ sharing-your-book
 publishing
 pages
 metadata-for-sharing
+r-and-python-challenges
+pulling-data-from-yahoo-finance-and-handling-errors
+original-text-on-linkedin
+solution-using-functional-programming-in-r
+python-solution-by-georgi-petkov
+r-solution-using-env-by-alexander-sevostianov
+python-solution-by-antonio-blago
