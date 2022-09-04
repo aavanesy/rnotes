@@ -23,6 +23,8 @@ sharing-your-book
 publishing
 pages
 metadata-for-sharing
+short-tutorials-in-r
+parsing-html-tables-from-static-websites
 r-and-python-challenges
 pulling-data-from-yahoo-finance-and-handling-errors
 original-text-on-linkedin
