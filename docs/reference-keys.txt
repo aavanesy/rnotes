@@ -25,6 +25,7 @@ pages
 metadata-for-sharing
 short-tutorials-in-r
 parsing-html-tables-from-static-websites
+encrypt-data-in-r
 r-and-python-challenges
 pulling-data-from-yahoo-finance-and-handling-errors
 original-text-on-linkedin

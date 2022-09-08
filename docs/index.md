@@ -1,7 +1,7 @@
 --- 
 title: "My notebook"
 author: "Arkadi Avanesyan"
-date: "2022-09-04"
+date: "2022-09-08"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]

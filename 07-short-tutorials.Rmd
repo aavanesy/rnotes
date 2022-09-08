@@ -12,10 +12,39 @@ table = htmltab(url, which = 1) %>%
   dplyr::select(Company, Symbol, Weight)
 
 table %>% 
+  head() %>% 
   kableExtra::kbl(row.names = F) %>% 
   kableExtra::kable_styling(full_width = F, position = 'left') %>% 
   kableExtra::kable_styling(font_size = 11) %>% 
   kableExtra::kable_styling(bootstrap_options = c("hover", "condensed")) 
 
+```
+
+
+## Encrypt Data in R
+
+Saving encrypted user data on SQL or in Rdata files with sensitive information is easy with the sodium package. 
+
+With the script below your passwords are encrypted and are no longer available as such.
+
+```{r}
+library(sodium)
+# userbase
+users <- tibble(Username = c('Al', 'Ben', 'Carl'),
+                Password = c('hello', '123456', 'cocacola'))
+
+# Encrypt passwords
+users_enc <- users %>% 
+  rowwise() %>% 
+  mutate(Password = sodium::password_store(Password))
+
+users_enc
+
+# save as Rdata if necessary, ideally store in SQL database
+# save(users_enc, file = 'userbase.Rdata')
+
+# verify if correct
+sodium::password_verify(users_enc$Password[1], 'Hello')
+sodium::password_verify(users_enc$Password[2], '123456')
 ```
 
